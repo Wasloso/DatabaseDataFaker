@@ -82,10 +82,10 @@ class DatabaseManager:
     def generate_drivers_license(self) -> DriversLicense:
         issued_on = self.fake.date_time_this_decade()
         expires_on = issued_on + timedelta(
-            days=self.fake.random_int(min=20 * 365, max=30 * 365)
+            days=self.fake.random_int(min=6 * 365, max=180 * 365, step=30)
         )
         return DriversLicense(
-            issued_on=self.fake.date_time_this_decade(),
+            issued_on=issued_on,
             expires_on=expires_on,
         )
 
