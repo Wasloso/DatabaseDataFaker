@@ -336,9 +336,9 @@ class DatabaseManager:
         status = self.fake.random_elements(
             elements=OrderedDict(
                 [
-                    (TechnicalIssueStatusEnum.Reported, 0.2),
-                    (TechnicalIssueStatusEnum.InProgress, 0.3),
-                    (TechnicalIssueStatusEnum.Resolved, 0.5),
+                    (TechnicalIssueStatusEnum.Reported, 0.1),
+                    (TechnicalIssueStatusEnum.InProgress, 0.1),
+                    (TechnicalIssueStatusEnum.Resolved, 0.8),
                 ]
             ),
             length=1,
@@ -411,7 +411,6 @@ class DatabaseManager:
 
         if not avaliable_ids:
             user = self.generate_user()
-            print("No avaliable ids, creating new user: ", user.id_user)
             self.insert_data(user)
             return user.id_user
         return self.fake.random_element(avaliable_ids)[0]

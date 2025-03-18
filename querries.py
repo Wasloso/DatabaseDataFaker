@@ -28,11 +28,6 @@ def UnresolvedTechnicalIssues(db: DatabaseManager):
         .filter(TechnicalIssue.status != TechnicalIssueStatusEnum.Resolved)
         .order_by(TechnicalIssue.report_date.asc())
     )
-    sql = str(
-        query.statement.compile(
-            dialect=db.engine.dialect, compile_kwargs={"literal_binds": True}
-        )
-    )
     return generateSql(db, query)
 
 
@@ -70,3 +65,5 @@ if __name__ == "__main__":
     print(VehiclesWithoutTechnicalInspection(manager))
     print(UnresolvedTechnicalIssues(manager))
     print(TicketInspectorFines(manager))
+
+    manager.session.que

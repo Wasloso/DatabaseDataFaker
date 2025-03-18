@@ -48,7 +48,6 @@ def main():
             count = int(input(f"How many {prompt} would you like to generate? "))
             for _ in range(count):
                 data = func()
-                printRow(data)
                 manager.insert_data(data)
                 if prompt == "paths":
                     pathstops = manager.generate_pathstops(data)
